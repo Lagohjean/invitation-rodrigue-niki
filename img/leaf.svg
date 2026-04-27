@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-50 -50 100 100">
+<defs>
+  <linearGradient id="lg" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#3a7a2e"/>
+    <stop offset="100%" stop-color="#1f4a17"/>
+  </linearGradient>
+</defs>
+<path d="M0 -45 Q35 -25 30 25 Q15 45 0 45 Q-15 45 -30 25 Q-35 -25 0 -45 Z" fill="url(#lg)" stroke="#0d2c08" stroke-width="0.8"/>
+<path d="M0 -42 L0 42" stroke="#0d2c08" stroke-width="0.6" opacity="0.5"/>
+<g stroke="#0d2c08" stroke-width="0.4" opacity="0.4" fill="none">
+  <path d="M0 -30 Q15 -22 22 -10"/>
+  <path d="M0 -10 Q18 -4 25 8"/>
+  <path d="M0 10 Q15 16 22 25"/>
+  <path d="M0 -30 Q-15 -22 -22 -10"/>
+  <path d="M0 -10 Q-18 -4 -25 8"/>
+  <path d="M0 10 Q-15 16 -22 25"/>
+</g>
+</svg>
