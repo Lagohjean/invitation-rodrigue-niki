@@ -48,9 +48,8 @@ le fichier est disponible, et reste masqué sinon. Aucune autre modification n'e
 
 ### Compléter les horaires de la réception
 
-La carte imprimée ne précise ni l'heure de la réception ni celle de la soirée. Les deux
-dernières cartes du programme affichent donc « À la suite » et « En soirée ». Pour mettre
-un horaire, remplacer dans `index.html` :
+La carte imprimée ne précise pas l'heure de la réception : sa carte affiche donc
+« À la suite ». Pour mettre un horaire, remplacer dans `index.html` :
 
 ```html
 <span class="a-preciser">À la suite</span>
