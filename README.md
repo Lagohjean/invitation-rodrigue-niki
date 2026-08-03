@@ -11,11 +11,10 @@ Voir en ligne : https://lagohjean.github.io/invitation-rodrigue-niki/
 2. **Héros** — monogramme R&G, prénoms, date et lieu, sur photo plein écran
 3. **Carte d'invitation** — les familles LAGOH & KEMONDE, verset, accès à la carte imprimée
 4. **Notre histoire** — frise des quatre étapes de l'union
-5. **Le programme de la journée** — cérémonie civile, bénédiction, réception, fête
+5. **Le programme de la journée** — cérémonie civile, bénédiction, réception
 6. **Compte à rebours** — jusqu'au 12 septembre 2026 à 12h00
 7. **Les lieux** — mairie de Yopougon et EERCI Temple Jérusalem, avec itinéraires
-8. **Notre album** — 9 photos, agrandissables
-9. **RSVP** — formulaire qui envoie la réponse par WhatsApp
+8. **RSVP** — formulaire qui envoie la réponse par WhatsApp
 
 ## Le programme (source : la carte imprimée)
 
@@ -35,7 +34,7 @@ Tout ce qui change souvent est regroupé dans l'objet `CONFIG`, en haut de
 | `dateMariage` | Cible du compte à rebours (heure d'Abidjan, UTC+0) |
 | `whatsapp` | Numéro qui reçoit les confirmations, format international sans `+` |
 | `musique` | Chemin du fichier audio d'ambiance |
-| `photos` | Les photos de l'album, dans l'ordre d'affichage |
+| `carte` | La carte d'invitation ouverte par le bouton « Voir la carte » |
 
 Les textes (prénoms, familles, verset, horaires, adresses) sont directement dans
 [`index.html`](index.html). Les couleurs et les tailles sont des variables CSS en tête de
@@ -62,8 +61,10 @@ La carte imprimée ne précise pas l'heure de la réception : sa carte affiche d
 ```
 index.html              le faire-part du 12 septembre 2026
 assets/css/style.css    styles et animations
-assets/js/main.js       porte, compte à rebours, galerie, RSVP
+assets/js/main.js       porte, compte à rebours, visionneuse, RSVP
 assets/img/             photos optimisées pour le web + ornements SVG
+assets/img/gallery/     photos de l'ancienne section « Notre album », plus
+                        référencées par la page mais conservées au cas où
 traditionnel/           l'ancien faire-part du mariage traditionnel (23 mai 2026)
 ```
 

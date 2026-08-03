@@ -19,19 +19,6 @@
     // Musique d'ambiance : déposez un fichier ici pour activer le bouton son.
     musique: "assets/audio/ambiance.mp3",
 
-    // Les 9 photos de l'album
-    photos: [
-      { f: "p8", alt: "Rodrigue et Grâce face à face en pagne baoulé" },
-      { f: "p9", alt: "Rodrigue et Grâce sur les trônes, tenue bleu et or" },
-      { f: "p5", alt: "Rodrigue enlaçant Grâce, tenue traditionnelle ocre" },
-      { f: "p3", alt: "Rodrigue et Grâce en tenue royale bleu et or, portrait entier" },
-      { f: "p4", alt: "Rodrigue et Grâce en tenue bleu ciel, souriants" },
-      { f: "p2", alt: "Rodrigue et Grâce côte à côte, parures d'or" },
-      { f: "p7", alt: "Rodrigue et Grâce assis, tenue bleu ciel et perles" },
-      { f: "p6", alt: "Rodrigue en tenue d'apparat bleu et or" },
-      { f: "p1", alt: "Rodrigue et Grâce sur les trônes en cœur" }
-    ],
-
     carte: { f: "carte-invitation", alt: "Carte d'invitation officielle de Rodrigue et Grâce" }
   };
 
@@ -250,46 +237,16 @@
   })();
 
   /* ==========================================================
-     6 · Galerie + visionneuse
+     6 · Visionneuse — sert à l'affichage de la carte d'invitation
      ========================================================== */
   var visionneuse = $("#visionneuse");
   var visImage = $("#vis-image");
   var visCompteur = $("#vis-compteur");
   var indexCourant = 0;
-  var suiteAffichee = CONFIG.photos;
-
-  (function construireGalerie() {
-    var grille = $("#galerie-grille");
-    if (!grille) return;
-
-    CONFIG.photos.forEach(function (photo, i) {
-      var fig = document.createElement("figure");
-      fig.className = "anim anim--zoom";
-      fig.style.setProperty("--retard", (i % 3) * 110 + "ms");
-      fig.tabIndex = 0;
-      fig.setAttribute("role", "button");
-      fig.setAttribute("aria-label", "Agrandir : " + photo.alt);
-
-      var img = document.createElement("img");
-      img.src = "assets/img/gallery/" + photo.f + "-t.jpg";
-      img.alt = photo.alt;
-      img.loading = i < 3 ? "eager" : "lazy";
-      img.decoding = "async";
-      fig.appendChild(img);
-
-      fig.addEventListener("click", function () { ouvrirVisionneuse(CONFIG.photos, i); });
-      fig.addEventListener("keydown", function (e) {
-        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); ouvrirVisionneuse(CONFIG.photos, i); }
-      });
-
-      grille.appendChild(fig);
-    });
-  })();
+  var suiteAffichee = [CONFIG.carte];
 
   function cheminComplet(photo) {
-    return photo.f === CONFIG.carte.f
-      ? "assets/img/" + photo.f + ".jpg"
-      : "assets/img/gallery/" + photo.f + ".jpg";
+    return "assets/img/" + photo.f + ".jpg";
   }
 
   function ouvrirVisionneuse(suite, i) {
