@@ -63,8 +63,6 @@ index.html              le faire-part du 12 septembre 2026
 assets/css/style.css    styles et animations
 assets/js/main.js       porte, compte à rebours, visionneuse, RSVP
 assets/img/             photos optimisées pour le web + ornements SVG
-assets/img/gallery/     photos de l'ancienne section « Notre album », plus
-                        référencées par la page mais conservées au cas où
 traditionnel/           l'ancien faire-part du mariage traditionnel (23 mai 2026)
 ```
 
