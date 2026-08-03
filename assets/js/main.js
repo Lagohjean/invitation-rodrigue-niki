@@ -52,17 +52,19 @@
     porte.classList.add("ouverte");
     document.body.classList.remove("verrouille");
 
-    // On laisse les battants pivoter avant de retirer le calque.
+    // Le héros se révèle pendant que les battants pivotent encore : l'attente
+    // ressentie tombe à environ une seconde, sans perdre l'effet d'ouverture.
+    window.scrollTo({ top: 0, behavior: "auto" });
+    reveler();
+    lancerMusique();
+
     setTimeout(function () {
       porte.classList.add("partie");
-      window.scrollTo({ top: 0, behavior: "auto" });
-      reveler();
-      lancerMusique();
-    }, doux ? 0 : 1500);
+    }, doux ? 0 : 700);
 
     setTimeout(function () {
       porte.style.display = "none";
-    }, doux ? 300 : 3200);
+    }, doux ? 250 : 1350);
   }
 
   $("#bouton-entrer").addEventListener("click", ouvrirLaPorte);
