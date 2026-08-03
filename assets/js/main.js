@@ -117,8 +117,10 @@
     var h = document.documentElement.scrollHeight - window.innerHeight;
     barre.style.transform = "scaleX(" + (h > 0 ? Math.min(y / h, 1) : 0) + ")";
 
+    // On passe par une variable CSS : l'animation de zoom la consomme dans ses
+    // images-clés, alors qu'un transform en ligne serait écrasé par l'animation.
     if (fond && !doux && y < window.innerHeight * 1.2) {
-      fond.style.transform = "translate3d(0," + (y * 0.28) + "px,0)";
+      fond.style.setProperty("--parallaxe", (y * 0.24) + "px");
     }
     enAttente = false;
   }

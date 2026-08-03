@@ -304,15 +304,48 @@ button { font: inherit; cursor: pointer; }
 
 .heros-fond {
   position: absolute;
-  inset: -4%;
-  background: url("../img/hero.jpg") center 22% / cover no-repeat, var(--violet-800);
+  /* Aucun débord en haut : c'est là que sont les visages. La marge
+     supplémentaire est en bas, où la parallaxe fait glisser l'image. */
+  top: 0;
+  left: -4%;
+  right: -4%;
+  bottom: -10%;
+  background-color: var(--violet-800);
+  background-image: url("../img/hero.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center 12%;
+  /* Le zoom prend appui près des visages plutôt qu'au centre,
+     sinon il rogne le haut de la photo. */
+  transform-origin: center 14%;
   animation: zoom-lent 26s ease-in-out infinite alternate;
   will-change: transform;
 }
+
+/* Une animation l'emporte sur le style en ligne : la parallaxe doit donc
+   passer par une variable lue dans les images-clés, pas par element.style. */
 @keyframes zoom-lent {
-  from { transform: scale(1.02); }
-  to   { transform: scale(1.14); }
+  from { transform: translate3d(0, var(--parallaxe, 0px), 0) scale(1); }
+  to   { transform: translate3d(0, var(--parallaxe, 0px), 0) scale(1.07); }
 }
+
+/* Écrans larges : la photo portrait y serait démesurément agrandie et
+   les visages passeraient hors cadre. On sert un cadrage 2:1 dédié. */
+/* Écrans larges : la photo portrait y serait démesurément agrandie et les
+   visages sortiraient du cadre. On sert donc un recadrage 2:1 de la même
+   photo, calé sur les visages. */
+@media (min-aspect-ratio: 1/1) {
+  .heros-fond {
+    background-image: url("../img/hero-large.jpg");
+    background-position: center 30%;
+    /* Ancré en haut : le zoom ne peut plus mordre sur les coiffes. */
+    transform-origin: center top;
+  }
+  /* Le couple occupe le haut du cadre : on descend le texte pour qu'il se
+     pose entre eux plutôt que sur les visages. */
+  .heros-contenu { margin-top: 5vh; }
+}
+
 
 .heros-voile {
   position: absolute;
